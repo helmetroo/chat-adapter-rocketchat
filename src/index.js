@@ -1,3 +1,3 @@
-import ChatAdapterRocketChat from './adapter.js';
+import { ChatAdapterRocketChat } from './adapter.js';
 
-module.exports = ChatAdapterRocketChat;
+export default ChatAdapterRocketChat;

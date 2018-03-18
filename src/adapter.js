@@ -1,7 +1,7 @@
 import EventEmitter from 'events';
 import RocketChat from './client';
 
-export default class ChatAdapterRocketChat {
+export class ChatAdapterRocketChat {
   constructor() {
     this._MODES = [
       'private', 'livechat'
@@ -46,6 +46,7 @@ export default class ChatAdapterRocketChat {
     let clientConfig = {
       deviceId: self._deviceId,
       backendUrl: self._backendUrl,
+      email: self._initData.email,
       username: self._initData.username,
       password: self._initData.password,
       mode: self._mode,
