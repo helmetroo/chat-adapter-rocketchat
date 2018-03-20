@@ -3,10 +3,6 @@ import RocketChat from './client';
 
 export class ChatAdapterRocketChat {
   constructor() {
-    this._MODES = [
-      'private', 'livechat'
-    ];
-
     this._name = 'ChatAdapterRocketChat';
     this._eventBus = new EventEmitter();
   }
@@ -21,22 +17,17 @@ export class ChatAdapterRocketChat {
   init(config) {
     // sample config:
     // var config = {
-    // backendUrl: 'https://chat-stg.121services.co',
-    // mode: 'private', // or 'livechat'
+    // backendUrl: string,
     // initData: {
-    //    username: 'admin',
-    //    password: 'admin',
-    //    data: {*roomId: YYY} <- when mode is 'private', fill in with a room id; when mode is 'livechat' fill in a departmentId
+    //    data: {
+    //    username: string,
+    //    password: string,
+    //    channelId: string,
+    //    }
     // }
     // }
 
     // console.debug('RC Adapter init', config);
-
-    this._deviceId = config.initData.data.deviceId;
-    this._mode = config.mode.toLowerCase();
-    if (!this._MODES.includes(this._mode)) {
-      throw new Error(`RocketChat unsupported mode ${config.mode}: use either livechat or private`);
-    }
 
     console.debug('Initializing communication with Rocket Chat...');
 
@@ -44,14 +35,13 @@ export class ChatAdapterRocketChat {
     this._initData = config.initData;
     let self = this;
     let clientConfig = {
-      deviceId: self._deviceId,
       backendUrl: self._backendUrl,
-      email: self._initData.email,
-      username: self._initData.username,
-      password: self._initData.password,
-      mode: self._mode,
-      roomId: self._initData.data.roomId,
-      eventBus: self._eventBus
+      eventBus: self._eventBus,
+      username: self._initData.data.username,
+      password: self._initData.data.password,
+      authToken: self._initData.data.authToken,
+      userId: self._initData.data.userId,
+      channelId: self._initData.data.channelId
     };
 
     return new Promise(function (resolve, reject) {

@@ -7,7 +7,7 @@ const env = require('yargs').argv.env; // use --env with webpack 2
 let libraryName = 'ChatAdapterRocketChat';
 
 let plugins = [],
-    outputFile = libraryName + '.js';
+outputFile = libraryName + '.js';
 
 const config = {
   entry: __dirname + '/src/index.js',
@@ -20,18 +20,11 @@ const config = {
     umdNamedDefine: true
   },
   module: {
-    rules: [
-      {
-        test: /(\.jsx|\.js)$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules|bower_components)/
-      },
-      {
-        test: /(\.jsx|\.js)$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
-      }
-    ]
+    rules: [{
+      test: /(\.jsx|\.js)$/,
+      loader: 'babel-loader',
+      exclude: /(node_modules|bower_components)/
+    }]
   },
   resolve: {
     modules: [path.resolve('./node_modules'), path.resolve('./src')],

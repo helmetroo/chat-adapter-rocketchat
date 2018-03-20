@@ -1,40 +1,52 @@
 {
-  "name": "chat-adapter-rocketchat",
-  "version": "1.0.0",
-  "description": "Rocket Chat adapter for 121 Services' Universal Chat Widget",
-  "keywords": ["chat", "widget", "chatbots", "vue", "vuejs", "rocketchat","livechat", "wss"],
-  "main": "lib/ChatAdapterRocketChat.js",
-  "scripts": {
-    "build": "webpack --env build",
-    "dev": "webpack --progress --colors --watch --env dev",
-    "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
-    "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
-  },
-  "dependencies": {
-    "ddp.js": "2.2.0",
-    "events": "1.1.1",
-    "js-sha256": "0.6.0"
-  },
-  "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-core": "6.24.1",
-    "babel-eslint": "7.2.3",
-    "babel-loader": "7.0.0",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-preset-es2015": "^6.24.1",
-    "chai": "3.5.0",
-    "eslint": "3.19.0",
-    "eslint-loader": "1.7.1",
-    "mocha": "3.3.0",
-    "webpack": "3.1.0",
-    "yargs": "7.1.0"
-  },
-  "author": "Carlos Gonzalez (https://catogonzalez.wordpress.com/)",
-  "license": "MIT",
-  "homepage": "https://github.com/catogonzalez/chat-adapter-rocketchat",
-  "bugs": "https://github.com/catogonzalez/chat-adapter-rocketchat/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/catogonzalez/chat-adapter-rocketchat.git"
-  }
+    "name": "chat-adapter-rocketchat",
+    "version": "1.0.0",
+    "description": "Rocket Chat adapter for 121 Services' Universal Chat Widget",
+    "keywords": [
+        "chat",
+        "widget",
+        "chatbots",
+        "vue",
+        "vuejs",
+        "rocketchat",
+        "livechat",
+        "wss"
+    ],
+    "main": "lib/ChatAdapterRocketChat.js",
+    "scripts": {
+        "build": "webpack --env build",
+        "dev": "webpack --progress --colors --watch --env dev",
+        "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
+        "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+    },
+    "dependencies": {
+        "babel-runtime": "6.26.0",
+        "ddp.js": "2.2.0",
+        "events": "1.1.1",
+        "js-sha256": "0.6.0"
+    },
+    "devDependencies": {
+        "babel-cli": "6.24.1",
+        "babel-core": "6.24.1",
+        "babel-eslint": "7.2.3",
+        "babel-loader": "^7.1.4",
+        "babel-plugin-add-module-exports": "0.2.1",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "1.6.1",
+        "chai": "3.5.0",
+        "eslint": "3.19.0",
+        "eslint-loader": "1.7.1",
+        "mocha": "3.3.0",
+        "webpack": "3.1.0",
+        "yargs": "7.1.0"
+    },
+    "author": "Carlos Gonzalez (https://catogonzalez.wordpress.com/)",
+    "license": "MIT",
+    "homepage": "https://github.com/catogonzalez/chat-adapter-rocketchat",
+    "bugs": "https://github.com/catogonzalez/chat-adapter-rocketchat/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/catogonzalez/chat-adapter-rocketchat.git"
+    }
 }
