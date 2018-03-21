@@ -261,6 +261,17 @@ export default class RocketChat {
       this._userAvatar = rocketMsg.avatar;
     }
 
+    const attachment = (rocketMsg.attachments && rocketMsg.attachments[0]) || null;
+    if(attachment !== null) {
+        if(attachment.image_url) {
+            attachment.image_url = this._url + attachment.image_url;
+        }
+        
+        if(attachment.title_link) {
+            attachment.title_link = this._url + attachment.title_link;
+        }
+    }
+
     return {
       time: rocketMsg.ts.$date,
       from: {
@@ -271,7 +282,7 @@ export default class RocketChat {
       direction: rocketMsg.u._id === this._userId ? 2 : 1,
       buttons: null,
       elements: null,
-      attachment: null
+      attachment: attachment
     };
   }
 }
